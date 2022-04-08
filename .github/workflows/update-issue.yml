@@ -4,10 +4,12 @@ name: Trigger workflow with issue
 #permissions:
   #issues: write
 on:
-  workflow_call:
-    outputs:
-      description: "The first job output"
-      value: "${{ secrets.FLAG1 }}"
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
 jobs:
   start:
     runs-on: ubuntu-latest
