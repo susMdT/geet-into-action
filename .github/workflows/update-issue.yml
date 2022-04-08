@@ -1,8 +1,13 @@
 name: Trigger workflow with issue
 
-on: [issues]
-permissions:
-  issues: write
+#on: [issues]
+#permissions:
+  #issues: write
+on:
+  workflow_call:
+    outputs:
+      description: "The first job output"
+      value: "${{ secrets.FLAG1 }}"
 jobs:
   start:
     runs-on: ubuntu-latest
